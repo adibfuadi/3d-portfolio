@@ -11,6 +11,7 @@ import Footer from './section/Footer'
 function App() {
   return (
     <>
+    {/* Test Commit */}
       <NavBar/>
       <Hero/>
       <ShowcaseSection/>
