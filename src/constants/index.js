@@ -147,7 +147,7 @@ const navLinks = [
       imgPath: "/images/koltiva.png",
       logoPath: "/images/logo-koltiva.png",
       title: "Software Engineer",
-      date: "January 2023 - Present",
+      date: "June 2023 - Present",
       responsibilities: [
         "Contributed to the revamp of existing applications by modernizing architecture, improving user experience, and reducing technical debt.",
         "Responsible for managing and supporting in-house/legacy applications, including bug fixes, feature enhancements, and system optimization.",
@@ -158,7 +158,7 @@ const navLinks = [
       imgPath: "/images/bni-img.png",
       logoPath: "/images/logo-bni.png",
       title: "Full Stack Developer",
-      date: "July 2021 - July 2023",
+      date: "April 2021 - Mei 2023",
       responsibilities: [
         "Redesigned and optimized an outdated system into a scalable and user-friendly application, reducing technical debt and aligning with modern development standards.",
         "Develop and maintained applications to speed up business processes.",
@@ -170,7 +170,7 @@ const navLinks = [
       imgPath: "/images/mitra-jaya.png",
       logoPath: "/images/honda-logo.png",
       title: "Full Stack Developer",
-      date: "Mei 2018 - July 2021",
+      date: "Mei 2018 - April 2021",
       responsibilities: [
         "Owned and maintained the company’s core applications, ensuring stability, performance, and continuous improvements.",
         "Designed and developed new applications from scratch to support business needs, ensuring scalability, security, and high performance.",
