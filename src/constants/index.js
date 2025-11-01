@@ -147,7 +147,7 @@ const navLinks = [
       imgPath: "/images/koltiva.png",
       logoPath: "/images/logo-koltiva.png",
       title: "Software Engineer",
-      date: "June 2023 - Present",
+      date: "June 2023 - October 2025",
       responsibilities: [
         "Contributed to the revamp of existing applications by modernizing architecture, improving user experience, and reducing technical debt.",
         "Responsible for managing and supporting in-house/legacy applications, including bug fixes, feature enhancements, and system optimization.",
