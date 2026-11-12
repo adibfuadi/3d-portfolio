@@ -158,46 +158,66 @@ section {
     @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
 
     .showcaselayout {
-      @apply flex xl:flex-row flex-col gap-10 justify-between;
+      @apply grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 xl:gap-16;
     }
 
-    .first-project-wrapper {
-      @apply h-full flex flex-col justify-between xl:w-[60%];
+    .showcase-card {
+      @apply flex flex-col;
 
       .image-wrapper {
-        @apply xl:h-[70vh] md:h-[50vh] h-96 relative;
+        @apply relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black-200
+               border border-black-50;
 
         img {
-          @apply w-full h-full object-cover rounded-xl absolute inset-0;
+          @apply w-full h-full object-cover transition-transform duration-500 ease-out;
         }
       }
 
       .text-content {
-        @apply space-y-5 mt-5;
-
-        .badges {
-          @apply flex gap-2 mb-4;
-        }
+        @apply mt-6 space-y-3;
 
         h2 {
-          @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+          @apply text-xl md:text-2xl xl:text-3xl font-bold;
+        }
+
+        p {
+          @apply text-white-50 md:text-lg;
         }
       }
-    }
 
-    .project-list-wrapper {
-      @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
+      .live-link {
+        @apply inline-flex items-center gap-2 pt-1 text-sm md:text-base
+               text-blue-50 transition-colors duration-300;
 
-      .image-wrapper {
-        @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
+        svg {
+          @apply size-4 transition-transform duration-300;
+        }
       }
 
-      img {
-        @apply w-full h-full object-contain rounded-xl;
-      }
+      &.is-clickable {
+        @apply cursor-pointer;
 
-      h2 {
-        @apply text-lg md:text-xl lg:text-2xl font-semibold mt-5;
+        &:hover .image-wrapper img,
+        &:focus-visible .image-wrapper img {
+          @apply scale-[1.04];
+        }
+
+        &:hover .live-link,
+        &:focus-visible .live-link {
+          @apply text-white;
+
+          svg {
+            @apply translate-x-1;
+          }
+        }
+
+        &:focus-visible {
+          @apply outline-none;
+
+          .image-wrapper {
+            @apply ring-2 ring-white/60;
+          }
+        }
       }
     }
   }
@@ -364,18 +384,28 @@ section {
 
 /* Hero Text slider ends */
 
+/* Timeline line for the experience section.
+   Every card renders its own .gradient-line, but .timeline-wrapper is
+   positioned against the element that wraps ALL the cards, so each line
+   spans the whole timeline and they stack exactly on top of each other --
+   which makes this single gradient read as one continuous run.
+
+   Stops follow the companies top to bottom, roughly 20% of the height each:
+     code.id  #db0d15  Telkomsel + Borneo Indobara (cards 1-2)
+     Koltiva  #2cbe72  (card 3)
+     BNI      #f25a24  (card 4)
+     Honda    #db0d15  (card 5) */
 .gradient-line {
   width: 2px;
   background: linear-gradient(
-    0deg,
-    rgba(69, 222, 196, 0) 0%,
-    #db0d15 25%,
-    #2cbe72 49.51%,
-    #db0d15 32.83%,
-    #db0d15 32.91%
-    );
-    /* #2cbe72 92.91% */
-    /* #f25a24 62.83%, */
+    180deg,
+    #db0d15 0%,
+    #db0d15 20%,
+    #2cbe72 45%,
+    #f25a24 68%,
+    #db0d15 90%,
+    rgba(219, 13, 21, 0) 100%
+  );
 }
 
 .gradient-edge:nth-of-type(1) {

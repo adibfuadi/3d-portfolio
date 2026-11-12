@@ -141,6 +141,33 @@ const techStackIcons = [
   }
 ];
 
+const showcaseProjects = [
+  {
+    title: "WorkNest - B2B Project Management System",
+    desc: "A web app built with React, MongoDB, Express and Node for a fast, user-friendly experience.",
+    imgPath: "/images/project_worknest.png",
+    url: "https://worknest-ashy.vercel.app/",
+  },
+  {
+    title: "AirPlane - Flight Booking Mobile App",
+    desc: "Discover and book your perfect holiday, from searching and comparing flights to payment in a few taps.",
+    imgPath: "/images/airplane.png",
+    url: null,
+  },
+  {
+    title: "Redefine - A Gaming Showcase App",
+    desc: "An immersive, animation-heavy landing experience built around scroll-driven storytelling.",
+    imgPath: "/images/web-game.png",
+    url: "https://redifined.vercel.app",
+  },
+  {
+    title: "TrackHouse - Real-Time 3D Warehouse Dashboard",
+    desc: "Live logistics operations in an isometric 3D view: shipment tracking, dock status and stock levels. Built with Claude Opus 5.5.",
+    imgPath: "/images/3d-warehouse.png",
+    url: "https://3d-warehouse-iota-liard.vercel.app/",
+  },
+];
+
 const expCards = [
   {
     review: "Adib demonstrated strong backend engineering and system design capabilities, leading API modernization initiatives and implementing asynchronous processing solutions that improved scalability, reliability, and maintainability across Telkomsel's services.",
@@ -285,6 +312,7 @@ const socialImgs = [
 
 export {
   words,
+  showcaseProjects,
   abilities,
   logoIconsList,
   counterItems,
