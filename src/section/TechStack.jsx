@@ -1,12 +1,27 @@
+import { useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { View } from "@react-three/drei";
 
 import TitleHeader from "../components/TitleHeader";
 import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
 import { techStackIcons } from "../constants";
 // import { techStackImgs } from "../constants";
 
+// Views render into scissored regions and never clear the full canvas, so a
+// moving icon would leave trails. Clear once per frame before the views draw
+// (priority 0 runs before the views' priority 1).
+const ClearEachFrame = () => {
+  useFrame(({ gl }) => gl.clear(), 0);
+  return null;
+};
+
 const TechStack = () => {
+  // Icons are drawn by the shared fixed Canvas, so they don't inherit the
+  // cards' GSAP fade. Keep them hidden until the cards start animating in.
+  const [revealed, setRevealed] = useState(false);
+
   // Animate the tech cards in the skills section
   useGSAP(() => {
     // This animation is triggered when the user scrolls to the #skills wrapper
@@ -31,6 +46,7 @@ const TechStack = () => {
           trigger: "#skills", // Trigger the animation when the user scrolls to the #skills wrapper
           start: "top center", // Start the animation when the top of the wrapper is at the center of the screen
         },
+        onStart: () => setRevealed(true),
       }
     );
   });
@@ -59,7 +75,7 @@ const TechStack = () => {
                 {/* The tech-icon-wrapper div contains the TechIconCardExperience component, 
                     which renders the 3D model of the tech stack icon. */}
                 <div className="tech-icon-wrapper">
-                  <TechIconCardExperience model={techStackIcon} />
+                  <TechIconCardExperience model={techStackIcon} visible={revealed} />
                 </div>
                 {/* The padding-x and w-full classes are used to add horizontal padding to the 
                     text and make it take up the full width of the component. */}
@@ -90,6 +106,22 @@ const TechStack = () => {
           ))} */}
         </div>
       </div>
+
+      {/* One shared WebGL context for every tech icon (previously one Canvas
+          per icon). Fixed to the viewport as drei's View requires; it only
+          draws inside each icon's View rect, and pointer events pass through
+          to the cards (each View wires OrbitControls to its own div). */}
+      <Canvas
+        style={{
+          position: "fixed",
+          inset: 0,
+          pointerEvents: "none",
+          zIndex: 50,
+        }}
+      >
+        <ClearEachFrame />
+        <View.Port />
+      </Canvas>
     </div>
   );
 };

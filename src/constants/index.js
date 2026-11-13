@@ -129,7 +129,7 @@ const techStackIcons = [
   },
   {
     name: "Node",
-    modelPath: "/models/node-transformed.glb",
+    modelPath: "/models/node-optimized.glb",
     scale: 5,
     rotation: [0, -Math.PI / 2, 0],
   },
@@ -145,25 +145,25 @@ const showcaseProjects = [
   {
     title: "WorkNest - B2B Project Management System",
     desc: "A web app built with React, MongoDB, Express and Node for a fast, user-friendly experience.",
-    imgPath: "/images/project_worknest.png",
+    imgPath: "/images/project_worknest.webp",
     url: "https://worknest-ashy.vercel.app/",
   },
   {
     title: "AirPlane - Flight Booking Mobile App",
     desc: "Discover and book your perfect holiday, from searching and comparing flights to payment in a few taps.",
-    imgPath: "/images/airplane.png",
+    imgPath: "/images/airplane.webp",
     url: null,
   },
   {
     title: "Redefine - A Gaming Showcase App",
     desc: "An immersive, animation-heavy landing experience built around scroll-driven storytelling.",
-    imgPath: "/images/web-game.png",
+    imgPath: "/images/web-game.webp",
     url: "https://redifined.vercel.app",
   },
   {
     title: "TrackHouse - Real-Time 3D Warehouse Dashboard",
     desc: "Live logistics operations in an isometric 3D view: shipment tracking, dock status and stock levels. Built with Claude Opus 5.5.",
-    imgPath: "/images/3d-warehouse.png",
+    imgPath: "/images/3d-warehouse.webp",
     url: "https://3d-warehouse-iota-liard.vercel.app/",
   },
 ];
