@@ -149,6 +149,18 @@ const showcaseProjects = [
     url: "https://worknest-ashy.vercel.app/",
   },
   {
+    title: "TrackHouse - Real-Time 3D Warehouse Dashboard",
+    desc: "Live logistics operations in an isometric 3D view: shipment tracking, dock status and stock levels. Built with Claude Opus 5.5.",
+    imgPath: "/images/3d-warehouse.webp",
+    url: "https://3d-warehouse-iota-liard.vercel.app/",
+  },
+  {
+    title: "Syntra - HR Attendance Mobile App",
+    desc: "Location-based clock in/out with shift schedules, leave requests and balances, attendance history and company events in one app.",
+    imgPath: "/images/syntra.webp",
+    url: null,
+  },
+  {
     title: "AirPlane - Flight Booking Mobile App",
     desc: "Discover and book your perfect holiday, from searching and comparing flights to payment in a few taps.",
     imgPath: "/images/airplane.webp",
@@ -159,12 +171,6 @@ const showcaseProjects = [
     desc: "An immersive, animation-heavy landing experience built around scroll-driven storytelling.",
     imgPath: "/images/web-game.webp",
     url: "https://redifined.vercel.app",
-  },
-  {
-    title: "TrackHouse - Real-Time 3D Warehouse Dashboard",
-    desc: "Live logistics operations in an isometric 3D view: shipment tracking, dock status and stock levels. Built with Claude Opus 5.5.",
-    imgPath: "/images/3d-warehouse.webp",
-    url: "https://3d-warehouse-iota-liard.vercel.app/",
   },
 ];
 
