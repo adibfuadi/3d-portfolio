@@ -1,5 +1,5 @@
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Suspense, useEffect } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import {
   Environment,
   Float,
@@ -34,6 +34,17 @@ const IconScene = ({ modelPath, scale, rotation }) => (
   </>
 );
 
+// OrbitControls sets `touch-action: none` on its element, which swallows
+// every swipe. Hand vertical swipes back to the browser so the page still
+// scrolls; horizontal swipes keep reaching the controls and spin the icon.
+const LetVerticalSwipesScroll = () => {
+  const controls = useThree((state) => state.controls);
+  useEffect(() => {
+    if (controls?.domElement) controls.domElement.style.touchAction = "pan-y";
+  }, [controls]);
+  return null;
+};
+
 /**
  * One tech icon, rendered one of two ways:
  *
@@ -43,13 +54,21 @@ const IconScene = ({ modelPath, scale, rotation }) => (
  *   where the page scrolls on the compositor thread ahead of JS: a View
  *   re-measured every frame lags a frame behind its card and visibly
  *   jitters, while a canvas inside the card scrolls with it natively.
- *   No OrbitControls there, so a swipe over the icon still scrolls the page.
+ *   Rotation is horizontal only there, so vertical swipes scroll the page.
  */
 const TechIconCardExperience = ({ model, visible = true, standalone = false }) => {
   if (standalone) {
     return (
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
         <IconScene {...model} />
+        <OrbitControls
+          makeDefault
+          enableZoom={false}
+          enablePan={false}
+          minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2}
+        />
+        <LetVerticalSwipesScroll />
       </Canvas>
     );
   }
